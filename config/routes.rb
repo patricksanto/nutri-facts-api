@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :foods, only: [ :index, :show ]
+      resources :foods, only: [ :index, :show, :update  ]
       resources :food_groups, only: [ :index, :show]
     end
   end

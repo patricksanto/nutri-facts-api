@@ -49,3 +49,5 @@ end
 gem 'pundit', '~> 2.1'
 
 gem 'devise', '~> 4.8'
+
+gem 'simple_token_authentication'
