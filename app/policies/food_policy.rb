@@ -12,4 +12,16 @@ class FoodPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    user.admin? || record.user == user
+  end
+
+  def create?
+    !user.nil?
+  end
+
+  def destroy?
+    user.admin?
+  end
 end

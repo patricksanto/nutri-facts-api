@@ -17,6 +17,16 @@ class Api::V1::FoodsController < Api::V1::BaseController
     end
   end
 
+  def create
+    @food = Food.new(food_params)
+    authorize @food
+    if @food.save
+      render :show, status: :created
+    else
+      render_error
+    end
+  end
+
   private
 
   def set_food
@@ -25,7 +35,7 @@ class Api::V1::FoodsController < Api::V1::BaseController
   end
 
   def food_params
-    params.require(:food).permit(:name, :calories)
+    params.require(:food).permit(:name, :calories, :food_group_id)
   end
 
   def render_error
